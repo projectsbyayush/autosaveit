@@ -1,0 +1,8 @@
+node_modules/
+out/
+.vscode-test/
+*.vsix
+*.map
+.DS_Store
+Thumbs.db
+*.log

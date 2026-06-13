@@ -1,0 +1,8 @@
+node_modules/**
+src/**
+tsconfig.json
+.vscode-test/**
+*.map
+.gitignore
+build.sh
+build.bat

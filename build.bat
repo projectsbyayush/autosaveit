@@ -1,0 +1,9 @@
+@echo off
+echo ==^> Installing dependencies...
+call npm install
+echo ==^> Compiling TypeScript...
+call npx tsc
+echo ==^> Packaging .vsix...
+call npx vsce package
+echo ==^> Done!
+dir *.vsix
