@@ -1,15 +1,22 @@
-# Auto-save Agent
+# autosaveit
 
-A **lightweight** VS Code extension that auto-saves your files a short time after you stop typing. Designed to be invisible until you need it.
+Lightweight debounced auto-save for VS Code. Saves files after you stop typing — invisible until you need it.
+
+## Resources
+
+- **GitHub:** https://github.com/projectsbyayush/autosaveit
+- **Report Issues:** https://github.com/projectsbyayush/autosaveit/issues
+- **License:** MIT
 
 ## Features
 
-- **Debounced save** — saves ~1 second after you stop typing (configurable)
-- **Ultra-light** — uses a single timer; no file system watchers, no polling
-- **Status bar indicator** — click to toggle on/off instantly
-- **Language & pattern exclusions** — skip auto-save for specific languages or files
-- **Zero dependencies** in the runtime bundle
-- **No telemetry, no network calls**
+- **Debounced Save** — Saves ~1 second after you stop typing (configurable)
+- **Ultra-Light** — Single timer, no file watchers, no polling
+- **Status Bar Toggle** — Click to enable/disable instantly
+- **Language Exclusions** — Skip auto-save for specific languages
+- **Pattern Exclusions** — Skip auto-save for specific file patterns
+- **Zero Dependencies** — No runtime dependencies
+- **No Telemetry** — No network calls, no tracking
 
 ## Performance
 
@@ -19,46 +26,85 @@ A **lightweight** VS Code extension that auto-saves your files a short time afte
 | Active CPU (typing) | <0.1% |
 | RAM | ~3–5 MB |
 | Disk I/O | Only on save |
-| Extension size (.vsix) | <50 KB |
+| Extension size | <15 KB |
 
-The extension only listens to `onDidChangeTextDocument` and clears/resets a single `setTimeout`. No `fs.watch`, no recursive watchers, no background workers.
+## Quick Start
 
-## Configuration
+1. Install the extension from the VS Code Marketplace
+2. Open any file in VS Code
+3. Start typing
+4. Stop typing — file saves automatically
 
-Open VS Code Settings → search "Auto-save Agent":
+## How It Works
 
-| Setting | Default | Description |
-|---|---|---|
-| `autosaveAgent.enabled` | `true` | Master on/off switch |
-| `autosaveAgent.delay` | `1000` | Ms to wait after typing stops (min 200, max 10000) |
-| `autosaveAgent.excludeLanguages` | `[]` | e.g., `["markdown", "jsonc"]` |
-| `autosaveAgent.excludePatterns` | `[]` | e.g., `["*.log", "node_modules"]` |
+1. Type in any file
+2. Stop typing for the configured delay (default: 1000ms)
+3. File saves automatically
+4. Toggle on/off via status bar icon or command palette
 
 ## Commands
 
-- `AutoSave: Toggle Auto-save` — enables/disables globally
-- `AutoSave: Save All Now` — force save all dirty files
+| Command | Description | Shortcut |
+|---------|-------------|----------|
+| Toggle Auto-save | Enable/disable auto-save globally | Click status bar |
+| Save All Now | Force save all dirty files | `Ctrl+Shift+P` |
+
+## Configuration
+
+Open VS Code Settings → search "autosaveit":
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `autosaveit.enabled` | `true` | Master on/off switch |
+| `autosaveit.delay` | `1000` | Milliseconds to wait after typing stops |
+| `autosaveit.excludeLanguages` | `[]` | Language IDs to exclude |
+| `autosaveit.excludePatterns` | `[]` | File patterns to exclude |
 
 ## vs. Built-in Auto-Save
 
 VS Code has `files.autoSave` (off / afterDelay / onFocusChange / onWindowChange).
 
-**Why use this extension?**
-- **Predictable timing** — saves exactly N ms after typing stops, regardless of focus
-- **Exclusion control** — easy JSON config for languages/patterns
-- **No flicker** — some users report the built-in one triggers mid-keystroke in some scenarios; debouncing avoids this
+**Why use autosaveit?**
+- **Predictable timing** — saves exactly N ms after typing stops
+- **Exclusion control** — easy config for languages and patterns
+- **No flicker** — debouncing avoids mid-keystroke saves
 
-If the built-in `files.autoSave: "afterDelay"` is enough for you, this extension is redundant — use the built-in.
+## Installation
 
-## Development
+### From VS Code Marketplace
+
+1. Open VS Code
+2. Go to Extensions (`Ctrl+Shift+X`)
+3. Search for "autosaveit"
+4. Click Install
+
+### From VSIX
 
 ```bash
-npm install
-npm run watch      # auto-recompile on save
-# In VS Code: F5 to launch Extension Development Host
-npm run package    # build .vsix
+code --install-extension AyushPatil.autosaveit-1.0.0.vsix
 ```
+
+### From Source
+
+```bash
+git clone https://github.com/projectsbyayush/autosaveit.git
+cd autosaveit
+npm install
+npm run compile
+```
+
+## Requirements
+
+- VS Code 1.60.0 or higher
 
 ## License
 
-MIT
+MIT License - Copyright (c) 2026 Ayush Patil.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Support
+
+If you find this extension helpful, please rate it on the VS Code Marketplace.
