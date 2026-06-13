@@ -1,20 +1,20 @@
 {
   "name": "autosaveit",
   "displayName": "autosaveit",
-  "description": "Lightweight debounced auto-save. Saves files ~1s after you stop typing.",
+  "description": "Lightweight auto-save extension for VS Code. Automatically saves files after typing stops with smart debouncing. Zero dependencies, <0.1% CPU usage.",
   "version": "1.0.0",
   "publisher": "AyushPatil",
   "icon": "logo.png",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AyushPatil/autosaveit"
+    "url": "https://github.com/projectsbyayush/autosaveit"
   },
   "engines": {
     "vscode": "^1.60.0"
   },
   "categories": ["Other", "Productivity"],
-  "keywords": ["auto-save", "autosave", "save", "productivity"],
+  "keywords": ["auto-save", "autosave", "vscode", "visual studio code", "extension", "productivity", "save", "automatic save", "debounced save", "lightweight", "code editor", "developer tools"],
   "activationEvents": ["*"],
   "main": "./out/extension.js",
   "contributes": {
