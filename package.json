@@ -13,7 +13,7 @@
   "engines": {
     "vscode": "^1.60.0"
   },
-  "categories": ["Other", "Productivity"],
+  "categories": ["Other"],
   "keywords": ["auto-save", "autosave", "vscode", "visual studio code", "extension", "productivity", "save", "automatic save", "debounced save", "lightweight", "code editor", "developer tools"],
   "activationEvents": ["*"],
   "main": "./out/extension.js",
